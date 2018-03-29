@@ -31,4 +31,5 @@
 
  [[constraint]]
    name = "github.com/gdamore/tcell"
-   branch = "windows"
+   branch = "master"
+# branch = "windows"

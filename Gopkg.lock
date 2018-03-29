@@ -2,10 +2,25 @@
 
 
 [[projects]]
-  branch = "windows"
-  name = "github.com/gdamore/tcell"
+  branch = "master"
+  name = "github.com/gdamore/encoding"
   packages = ["."]
-  revision = "a57ede10db025be7486a1ce088705104494ef405"
+  revision = "b23993cbb6353f0e6aa98d0ee318a34728f628b9"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/gdamore/tcell"
+  packages = [
+    ".",
+    "terminfo"
+  ]
+  revision = "aa381bce1bf2eb814ead6ce443dfad0580f4a79f"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/lucasb-eyer/go-colorful"
+  packages = ["."]
+  revision = "231272389856c976b7500c4fffcc52ddf06ff4eb"
 
 [[projects]]
   name = "github.com/mattn/go-runewidth"
@@ -13,9 +28,21 @@
   revision = "9e777a8366cce605130a531d2cd6363d07ad7317"
   version = "v0.0.2"
 
+[[projects]]
+  name = "golang.org/x/text"
+  packages = [
+    "encoding",
+    "encoding/internal/identifier",
+    "internal/gen",
+    "transform",
+    "unicode/cldr"
+  ]
+  revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
+  version = "v0.3.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "950082a58757be962077d3b21bf4f7987ad46fd4cc769c0ebe854d732971f9a6"
+  inputs-digest = "3ed8cd411a135a8083da03c97fe808d7f254393220b931b360df8ade6c0b3cb6"
   solver-name = "gps-cdcl"
   solver-version = 1
