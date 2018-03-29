@@ -16,8 +16,8 @@
 
 package tcell
 
-// NewConsoleScreen returns a console based screen.  This platform
-// doesn't have support for any, so it returns nil and a suitable error.
+import "errors"
+
 func NewConsoleScreen() (Screen, error) {
-	return nil, ErrNoScreen
+	return nil, errors.New("no platform specific console support")
 }
