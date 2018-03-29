@@ -97,18 +97,8 @@ func main() {
 
 	cnt := 0
 	dur := time.Duration(0)
-loop:
-	for {
-		select {
-		case <-quit:
-			break loop
-		case <-time.After(time.Millisecond * 50):
-		}
-		start := time.Now()
-		makebox(s)
-		cnt++
-		dur += time.Now().Sub(start)
-	}
+	makebox(s)
+	cnt++
 
 	s.Fini()
 	fmt.Printf("Finished %d boxes in %s\n", cnt, dur)
