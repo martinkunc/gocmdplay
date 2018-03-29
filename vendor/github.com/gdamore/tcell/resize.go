@@ -25,18 +25,14 @@ type EventResize struct {
 	h int
 }
 
-// NewEventResize creates an EventResize with the new updated window size,
-// which is given in character cells.
 func NewEventResize(width, height int) *EventResize {
 	return &EventResize{t: time.Now(), w: width, h: height}
 }
 
-// When returns the time when the Event was created.
 func (ev *EventResize) When() time.Time {
 	return ev.t
 }
 
-// Size returns the new window size as width, height in character cells.
 func (ev *EventResize) Size() (int, int) {
 	return ev.w, ev.h
 }

@@ -1,4 +1,6 @@
-// Copyright 2015 Garrett D'Amore
+// +build windows
+
+// Copyright 2015 The TCell Authors
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use file except in compliance with the License.
@@ -12,22 +14,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package encoding
+package tcell
+
+// On win32 we don't have support for termios.  We probably could, and
+// may should, in a cygwin type environment.  Its not clear how to make
+// this all work nicely with both cygwin and Windows console, so we
+// decline to do so here.
 
 import (
-	"golang.org/x/text/encoding"
+	"errors"
 )
 
-// ISO8859_1 represents the 8-bit ISO8859-1 scheme.  It decodes directly to
-// UTF-8 without change, as all ISO8859-1 values are legal UTF-8.
-// Unicode values less than 256 (i.e. 8 bits) map 1:1 with 8859-1.
-// It encodes runes outside of that to 0x1A, the ASCII substitution character.
-var ISO8859_1 encoding.Encoding
+func (t *tScreen) termioInit() error {
+	return errors.New("no termios on Windows")
+}
 
-func init() {
-	cm := &Charmap{}
-	cm.Init()
+func (t *tScreen) termioFini() {
 
-	// 8859-1 is the 8-bit identity map for Unicode.
-	ISO8859_1 = cm
+	return
+}
+
+func (t *tScreen) getWinSize() (int, int, error) {
+	return 0, 0, errors.New("no temrios on Windows")
 }
